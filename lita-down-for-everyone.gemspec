@@ -3,9 +3,8 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Jordan Killpack"]
   spec.email         = ["jordan@bignerdranch.com"]
-  spec.description   = %q{TODO: Add a description}
-  spec.summary       = %q{TODO: Add a summary}
-  spec.homepage      = "TODO: Add a homepage"
+  spec.description   = %q{Lita, is github.com down?}
+  spec.summary       = %q{Lita, is github.com down?}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
