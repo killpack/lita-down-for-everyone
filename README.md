@@ -1,6 +1,7 @@
 # lita-down-for-everyone
 
-TODO: Add a description of the plugin.
+Give yourself a sanity check. Use `isup.me` to figure out if Github, 
+Google, Heroku, etc. are *really* down.
 
 ## Installation
 
@@ -10,13 +11,11 @@ Add lita-down-for-everyone to your Lita instance's Gemfile:
 gem "lita-down-for-everyone"
 ```
 
-## Configuration
-
-TODO: Describe any configuration attributes the plugin exposes.
-
 ## Usage
 
-TODO: Describe the plugin's features and how to use them.
+`killpack`: `Lita, is github.com down?`
+
+`Lita`: `killpack: It's just you: looks like github.com is up. http://isup.me/github.com`
 
 ## License
 
