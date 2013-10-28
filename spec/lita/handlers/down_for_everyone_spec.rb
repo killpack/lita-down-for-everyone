@@ -33,7 +33,7 @@ HEREDOC
 
       it "replies that the site is down" do
         send_command("is google.com down?")
-        expect(replies.last).to include("Looks like google.com is down. http://isup.me/google.com") 
+        expect(replies.last).to include("Test User: Looks like google.com is down. http://isup.me/google.com") 
       end
     end
 
@@ -62,7 +62,7 @@ HEREDOC
 
       it "replies that the site is up" do
         send_command("is github.com down?")
-        expect(replies.last).to include("It's just you: looks like github.com is up. http://isup.me/github.com")
+        expect(replies.last).to include("Test User: It's just you: looks like github.com is up. http://isup.me/github.com")
       end
     end
 

@@ -8,12 +8,14 @@ module Lita
       def is_site_down(response)
         site_url = response.matches[0][0]
         api_url = api_url(response.matches[0][0]) 
+        username = response.user.name
+
         response_html = http.get(api_url).body
 
         if response_html.include? "looks down from here."
-          response.reply "Looks like #{site_url} is down. #{api_url}"
+          response.reply "#{username}: Looks like #{site_url} is down. #{api_url}"
         elsif response_html.include? "It's just you."
-          response.reply "It's just you: looks like #{site_url} is up. #{api_url}"
+          response.reply "#{username}: It's just you: looks like #{site_url} is up. #{api_url}"
         end
       end
 
