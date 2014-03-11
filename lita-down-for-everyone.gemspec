@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-down-for-everyone"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
   spec.authors       = ["Jordan Killpack"]
   spec.email         = ["jordan@bignerdranch.com"]
   spec.description   = %q{Lita, is github.com down?}
