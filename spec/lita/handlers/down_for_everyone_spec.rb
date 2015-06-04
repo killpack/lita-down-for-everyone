@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe Lita::Handlers::DownForEveryone, lita_handler: true do
-  it { routes_command("is heroku.com down").to :is_site_down }
-  it { routes_command("is github.com down again").to :is_site_down }
+  it { is_expected.to route_command("is heroku.com down").to :is_site_down }
+  it { is_expected.to route_command("is github.com down again").to :is_site_down }
 
   describe "#is_site_down" do
     context "when the site is down" do

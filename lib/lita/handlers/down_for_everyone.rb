@@ -1,4 +1,5 @@
 require "lita"
+require "pry"
 
 module Lita
   module Handlers
@@ -7,7 +8,8 @@ module Lita
 
       def is_site_down(response)
         site_url = response.matches[0][0]
-        api_url = api_url(response.matches[0][0]) 
+        site_url = sanitize(site_url) if site_url_from_slack?(site_url)
+        api_url  = api_url(site_url) 
         username = response.user.name
 
         response_html = http.get(api_url).body
@@ -23,6 +25,14 @@ module Lita
 
       def api_url(site_url)
         "http://isup.me/#{site_url}"
+      end
+
+      def sanitize(site_url)
+        URI.extract(site_url)[0].split("//")[1]
+      end
+
+      def site_url_from_slack?(site_url)
+        true if site_url.match(/</)
       end
     end
 
