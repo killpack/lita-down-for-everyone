@@ -3,6 +3,7 @@ require "spec_helper"
 describe Lita::Handlers::DownForEveryone, lita_handler: true do
   it { is_expected.to route_command("is heroku.com down").to :is_site_down }
   it { is_expected.to route_command("is github.com down again").to :is_site_down }
+  it { is_expected.to route_command("is \"<http://github.com|github.com>\" down again").to :is_site_down }
 
   describe "#is_site_down" do
     context "when the site is down" do
@@ -65,7 +66,12 @@ HEREDOC
         expect(replies.last).to include("Test User: It's just you: looks like github.com is up. http://isup.me/github.com")
       end
     end
-
+    context "when the url has been sent from slack" do
+      it "replies that the site is up" do
+        send_command("is \"<http://github.com|github.com>\" down?")
+        expect(replies.last).to include("Test User: It's just you: looks like github.com is up. http://isup.me/github.com")
+      end
+    end
     context "when the given URL is invalid" do
       let(:invalid_html) {
 <<HEREDOC
